@@ -1,0 +1,9 @@
+{
+  "name": "karmen-patch-risk-review",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": "https://github.com/KarmenLoop/skill-patch-risk-review",
+  "entrypoint": "SKILL.md",
+  "runtime": "Python >=3.9",
+  "network": false
+}

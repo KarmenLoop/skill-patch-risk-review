@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "path": "src/auth.py",
+      "additions": 2,
+      "deletions": 1,
+      "review_areas": [
+        "authentication"
+      ]
+    }
+  ],
+  "additions": 2,
+  "deletions": 1
+}

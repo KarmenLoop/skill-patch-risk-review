@@ -1,0 +1,3 @@
+{
+  "diff": "diff --git a/src/auth.py b/src/auth.py\n--- a/src/auth.py\n+++ b/src/auth.py\n@@ -1,1 +1,2 @@\n-old_check()\n+new_check()\n+log_result()\n"
+}

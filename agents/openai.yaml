@@ -1,0 +1,4 @@
+interface:
+  display_name: "KarmenLoop Patch Risk Review"
+  short_description: "Patch Risk Review with reproducible local checks"
+  default_prompt: "Use $karmen-patch-risk-review to review this patch for behavior risks and needed tests."
