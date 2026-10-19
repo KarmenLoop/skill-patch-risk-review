@@ -1,23 +1,23 @@
 # KarmenLoop Patch Risk Review
 
-**Map a unified diff to focused review areas and verification needs.**
+Patch Risk Review gives you a starting point for reviewing a Git diff. It summarizes the changed files and highlights areas such as authentication, storage, dependencies, and tests.
 
-Built by **[KarmenLoop](https://github.com/KarmenLoop)**. Map a unified diff to focused review areas and verification needs.
+By [KarmenLoop](https://github.com/KarmenLoop).
 
 [![Release](https://img.shields.io/github/v/release/KarmenLoop/skill-patch-risk-review)](https://github.com/KarmenLoop/skill-patch-risk-review/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](docs/INPUT.md)
 [![Platform](https://img.shields.io/badge/Platform-macOS%20%7C%20Linux%20%7C%20Windows-lightgrey.svg)](docs/COMPATIBILITY.md)
 
-[Download](https://github.com/KarmenLoop/skill-patch-risk-review/releases) · [Quick start](#quick-start) · [Documentation](#documentation) · [Contribute](CONTRIBUTING.md) · [Contact](https://github.com/KarmenLoop/skill-patch-risk-review/issues) · English
+[Download](https://github.com/KarmenLoop/skill-patch-risk-review/releases) · [Quick start](#quick-start) · [Documentation](#documentation) · [Contribute](CONTRIBUTING.md) · [Contact](https://github.com/KarmenLoop/skill-patch-risk-review/issues)
 
-**License:** MIT. Free to use, modify, redistribute, and use commercially with the required copyright and license notice. The included local helper needs no subscription or provider API key.
+The code is [MIT licensed](LICENSE). The local helper needs Python 3.9 or later, with no subscription or provider API key.
 
 ## Introduction
 
-Use the exact base/head diff and the repository's current requirements. A text heuristic is a review starting point, not a defect finding. Diff headers identify files; hunk markers constrain line counting. Path categories guide targeted review without presenting heuristics as security findings.
+Use the exact base and head revisions for the change. The helper reads diff headers and hunk ranges to count changes and retain file locations. Its suggestions help you decide where to look; they are not findings that a bug or security problem exists.
 
-This repository ships one independently installable agent skill, an original deterministic helper, example input, and executable tests. A capable agent handles interpretation and tool selection; the helper performs the repeatable work described below.
+The package includes an agent skill, a local Python helper, example data, and tests. The skill guides the conversation; the helper processes the supplied data.
 
 ## Capabilities
 
@@ -36,7 +36,7 @@ python3 scripts/run.py --input examples/input.json
 python3 -m unittest discover -s tests -v
 ```
 
-The helper returns a structured result. Compare it with [examples/expected.json](examples/expected.json). Read the [field contract](docs/INPUT.md) before supplying your own data. Any documented relative file paths resolve from the process working directory.
+Compare the result with [examples/expected.json](examples/expected.json). For your own data, follow the [input format](docs/INPUT.md). Relative file paths are resolved from the directory where you run the command.
 
 To save a result without overwriting an existing file:
 
@@ -46,18 +46,18 @@ python3 scripts/run.py --input examples/input.json --output result.json
 
 ### Install the agent skill
 
-Choose one host:
+Install it for the agent host you use:
 
 ```sh
 python3 install.py --host codex
 # Alternatives: --host deepseek, --host grok, or --host agents
 ```
 
-The installer copies this skill into the selected user's skill directory and refuses an existing destination. It does not change host settings, permissions, credentials, or other skills. Use --destination with an exact new directory for a custom installation.
+The installer copies the skill into your host's skill directory. It stops if that directory already exists. To choose another location, pass `--destination` with a new directory. Host settings, credentials, permissions, and other skills are left alone.
 
 In Codex, invoke $karmen-patch-risk-review. In Grok Build, invoke /karmen-patch-risk-review. In another compatible host, select the installed skill by name. Example request:
 
-> Review this patch for behavior risks and needed tests.
+> Where should I look first when reviewing this patch?
 
 Refresh your host's skill discovery if needed. See [compatibility and its verification limits](docs/COMPATIBILITY.md).
 
@@ -65,7 +65,7 @@ Refresh your host's skill discovery if needed. See [compatibility and its verifi
 
 Diff headers identify files; hunk markers constrain line counting. Path categories guide targeted review without presenting heuristics as security findings.
 
-JSON results can be inspected, archived, or passed to another tool. The helper never interprets input as a shell command. Exit code 0 means processing completed; findings may still require action. Exit code 2 means invalid input or a filesystem error. Existing output files are preserved.
+The result is JSON, so you can save it or pass it to another tool. Exit code `0` means the helper finished, even when its findings need attention. Exit code `2` means the input or a file operation failed. The helper does not run shell commands from the input or overwrite an existing output file.
 
 ## Documentation
 
