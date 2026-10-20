@@ -3,7 +3,7 @@ name: karmen-patch-risk-review
 description: "Map a unified diff to focused review areas and verification needs. Use when a user requests a code review or needs to assess the impact of a patch."
 metadata:
   author: KarmenLoop
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Patch Risk Review
