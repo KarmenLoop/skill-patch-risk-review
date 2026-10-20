@@ -1,10 +1,10 @@
 # Input and output
 
-Supply a UTF-8 JSON object (maximum 10 MiB). Duplicate JSON keys and non-finite JSON constants are rejected. Arrays are required unless documented as optional. IDs must be stable and unique. Dates use ISO 8601; timestamps require an explicit UTC offset.
+Supply a UTF-8 JSON object (maximum 10 MiB). Use `--input PATH` for a file or `--input -` for standard input. Run `--version` to inspect the installed helper version. Duplicate JSON keys and non-finite JSON constants are rejected. Arrays are required unless documented as optional. IDs must be stable and unique. Dates use ISO 8601; timestamps require an explicit UTC offset.
 
 | Field | Contract |
 | --- | --- |
-| diff | Git-style unified diff string; empty diff is allowed. |
+| diff | Git-style unified diff string; empty diff is allowed. Space-containing and Git-quoted UTF-8 paths are supported. Truncated or inconsistent hunk counts are input errors. |
 
 ## Example
 
