@@ -4,7 +4,7 @@
 
 先从 Git 补丁里找出值得重点看的部分。工具按文件统计增删行，并标出鉴权等审阅方向，方便回到完整差异里进一步检查。
 
-[下载 v0.2.1](https://github.com/KarmenLoop/skill-patch-risk-review/releases/tag/v0.2.1) · [完整教程](docs/tutorial.zh-CN.md) · [输入参考（英文）](docs/INPUT.md) · [反馈问题](https://github.com/KarmenLoop/skill-patch-risk-review/issues)
+[下载 v0.2.1](https://github.com/KarmenLoop/skill-patch-risk-review/releases/tag/v0.2.1) · [完整教程](docs/tutorial.zh-CN.md) · [输入参考](docs/input.zh-CN.md) · [反馈问题](https://github.com/KarmenLoop/skill-patch-risk-review/issues)
 
 ## 能做什么
 
@@ -41,7 +41,7 @@ diff 填写完整 Git 统一差异，保留文件头和 hunk 行数。不完整�
 
 尝试带引号或空格路径的补丁，再与 git diff --stat 对照。回到每个被标记文件审阅，并运行受影响项目自己的检查。
 
-准备新输入前可查看[字段约定（英文）](docs/INPUT.md)。工具只依赖 Python 标准库，本身不需要模型账号、API 密钥或网络。使用 AI 宿主时，宿主有自己的数据与权限设置。
+准备新输入前可查看[字段约定](docs/input.zh-CN.md)。工具只依赖 Python 标准库，本身不需要模型账号、API 密钥或网络。使用 AI 宿主时，宿主有自己的数据与权限设置。
 
 ## 常见问题
 
@@ -52,7 +52,7 @@ diff 填写完整 Git 统一差异，保留文件头和 hunk 行数。不完整�
 ## 文档与支持
 
 - [下载、安装、配置、练习、升级与卸载](docs/tutorial.zh-CN.md)
-- [输入输出约定](docs/INPUT.md)与[兼容性说明](docs/COMPATIBILITY.md)（英文参考）
+- [输入输出约定](docs/input.zh-CN.md)与[兼容性说明](docs/COMPATIBILITY.md)（英文参考）
 - [更新记录](CHANGELOG.md)、[参与贡献](CONTRIBUTING.md)、[支持](SUPPORT.md)和[安全反馈](SECURITY.md)
 
 ## 许可证
